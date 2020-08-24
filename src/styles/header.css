@@ -20,7 +20,7 @@
 .logo-wrapper {
   grid-column: 1/2;
 }
-.highcurve-logo {
+.logo-wrapper > .highcurve-logo {
   height: 50px;
   width: 200px;
 }
