@@ -12,7 +12,7 @@ function Layout({children}){
     <div id="root">
       <Head>
         <title>{default_title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/highcurve.ico" />
         <meta key="charSet" charSet="utf-8" />
         <meta key="title" name="title" content={default_title} />
         <meta key="description" name="description" content={description} />
