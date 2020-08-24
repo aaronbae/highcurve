@@ -6,6 +6,7 @@ export default function Home() {
     <Layout>
       <div id="home">
         HOME
+        {process.env.NODE_ENV}
       </div> 
     </Layout>
   )
