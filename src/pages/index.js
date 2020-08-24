@@ -1,4 +1,3 @@
-import Layout from '../components/layout'
 import UnderConstruction from '../components/underconstruction'
 import '../styles/index.css'
 
@@ -7,10 +6,8 @@ export default function Home() {
     return <UnderConstruction />
   }
   return (
-    <Layout>
-      <div id="home">
-        HOME
-      </div> 
-    </Layout>
+    <div id="home">
+      HOME
+    </div>
   )
 }
