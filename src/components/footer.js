@@ -21,7 +21,7 @@ export default function Footer() {
         <Link href="/disclaimer"><a>Disclaimer</a></Link>
       </div>
       <div className="footer-bottom">
-        Built and Designed by AaronBae
+        Built and Designed by AaronBae. 2020.
       </div>
     </footer>
   )
