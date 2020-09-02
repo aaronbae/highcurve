@@ -1,0 +1,8 @@
+@media (min-width: 481px) {
+  #home {
+    padding: 10px 15vw;
+  }  
+}
+@media (max-width: 480px) {
+
+}

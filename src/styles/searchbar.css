@@ -1,0 +1,21 @@
+.searchbar-container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.searchbar {
+  outline: none;
+  padding: 3px 5px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.searchbar-dropdown-wrapper {
+  position: relative;
+}
+.searchbar-dropdown {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+}
+.hidden {
+  display: none;
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SearchBar from '../components/searchbar'
 import '../styles/header.css'
 
 export default function Header() {
@@ -11,10 +12,7 @@ export default function Header() {
           </a>
         </Link>
         <nav className="navigation">
-          <div className="search-group">
-            <span>Search</span>
-            <input className="searchbar" type="text" />
-          </div>
+          <SearchBar />
         </nav>
       </div>
     </header>
