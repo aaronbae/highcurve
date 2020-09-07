@@ -8,7 +8,7 @@ export default function Home() {
   }
   return (
     <div id="home">
-      <TickerTable />
+      <TickerTable ticker="TSLA"/>
     </div>
   )
 }
