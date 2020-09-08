@@ -3,6 +3,11 @@
     padding: 10px 15vw;
   }  
 }
+@media (max-width: 768px) {
+  #main {
+    padding: 10px 10px;
+  }  
+}
 #main {
   min-height: 85vh;
 }

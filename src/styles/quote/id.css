@@ -1,3 +1,7 @@
 .quote-title {
   font-size: 3rem;
 }
+.quote-chart-container {
+  width: 80%;
+  height: 300px;
+}
