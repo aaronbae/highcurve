@@ -11,7 +11,11 @@ export default function TickerTable(params) {
   useEffect(()=>{
     fetch(`${process.env.NEXT_PUBLIC_STOCKS_URL}${params.ticker}/20`) 
       .then(response => response.json())
-      .then(data => setData(data.stocks))
+      .then(data => {
+        if(data.stocks){
+          setData(data.stocks)
+        }
+      })
   }, [])
   
   return (

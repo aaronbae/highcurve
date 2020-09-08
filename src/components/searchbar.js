@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
 import io from "socket.io-client";
 import '../styles/searchbar.css'
 
@@ -8,36 +9,41 @@ export default function SearchBar() {
   const dropdown = useRef(null)
 
   useEffect(()=>{
-    //const socket = io(process.env.NEXT_PUBLIC_WSS)
-    //setSocket(socket)
-    //return ()=>{
-    //  socket.disconnect()
-    //}
-  }, [])
-
-
-  const handle_focus = (event)=>{
-    console.log("focused")
-    if(socket){
-      console.log("emitting...")
-      socket.emit("something", 127)
-      console.log("done...")
+    const socket = io(process.env.NEXT_PUBLIC_WSS)
+    setSocket(socket)
+    socket.on('ticker_search', tickers=>{setPossibles(tickers)})
+    return ()=>{
+      socket.disconnect()
     }
-    dropdown.current.classList.remove("hidden")  
+  }, [])
+  useEffect(()=>{
+    if(possibles.length===0){
+      dropdown.current.classList.add("hidden")  
+    } else {
+      dropdown.current.classList.remove("hidden")
+    }
+  },[possibles])
+
+  const update_list = (event) => {
+    if(socket){
+      socket.emit("ticker_search", event.target.value)
+    }
   }
-  const handle_blur = (event)=>{
-    console.log("blurred")
+  const handle_blur = (event) => {
     dropdown.current.classList.add("hidden")
-    console.log(dropdown.current.classList)
   }
 
   return (
     <div className="search-container">
-      <input className="searchbar" type="text" onClick={handle_focus} onBlur={handle_blur}/>
+      <input className="searchbar" onBlur={handle_blur} type="text" onKeyUp={update_list}/>
       <div className="searchbar-dropdown-wrapper">
         <div ref={dropdown} className="searchbar-dropdown hidden">
           {possibles.map((item, index)=>
-            <span>shit</span>
+            <div key={index}>
+              <Link href="/quote/[id]" as={`/quote/${item.ticker}`}>
+                <a>{item.ticker}</a>
+              </Link>
+            </div>
           )}
         </div>
       </div>
