@@ -26,7 +26,11 @@ export default function SearchBar() {
   },[possibles])
 
   const remote_trigger =(event) =>{
-    event.target.click()
+    if(event.target.nodeName==="DIV"){
+      event.target.children[0].click()
+    } else {
+      event.target.click()
+    }
     searchbar.current.value = ""
   }
   const update_list = (event) => {
@@ -40,8 +44,14 @@ export default function SearchBar() {
 
   return (
     <div className="search-container">
-      <input ref={searchbar} className="searchbar" onBlur={handle_blur} type="text" onKeyUp={update_list}/>
-      <div className="searchbar-dropdown-wrapper">
+      <div className="search-inner-container">
+        <input 
+          ref={searchbar} 
+          className="searchbar" 
+          type="text"
+          placeholder="Search" 
+          onBlur={handle_blur} 
+          onKeyUp={update_list}/>
         <div ref={dropdown} className="searchbar-dropdown hidden">
           {possibles.map((item, index)=>
             <div key={index} onMouseDown={remote_trigger}>

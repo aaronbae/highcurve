@@ -86,9 +86,9 @@ export default function Quote() {
               </LineChart> 
             </ResponsiveContainer>
           </div>
-          <div className="quote-title">
+          <div className="quote-header">
             <span>{id}</span>
-            <span>{data[data[0].close]}</span>
+            <span className="quote-price">${data[0].close}</span>
           </div>
           <Table header={["Date", "Change", "Open", "High", "Low", "Close"]}>
             {data.map((item, index)=>

@@ -1,5 +1,10 @@
-.quote-title {
+.quote-header {
   font-size: 3rem;
+  display: flex;
+  flex-direction: row;
+}
+.quote-price {
+  margin-left: 30%;
 }
 .quote-chart-container {
   width: 80%;
