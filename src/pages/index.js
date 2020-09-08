@@ -1,4 +1,3 @@
-import TickerTable from '../components/tickertable'
 import UnderConstruction from '../components/underconstruction'
 import '../styles/index.css'
 
@@ -8,7 +7,7 @@ export default function Home() {
   }
   return (
     <div id="home">
-      <TickerTable ticker="AAPL"/>
+      Nothing to show
     </div>
   )
 }

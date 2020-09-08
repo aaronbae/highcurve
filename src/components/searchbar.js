@@ -24,6 +24,9 @@ export default function SearchBar() {
     }
   },[possibles])
 
+  const remote_trigger =(event) =>{
+    event.target.click()
+  }
   const update_list = (event) => {
     if(socket){
       socket.emit("ticker_search", event.target.value)
@@ -39,7 +42,7 @@ export default function SearchBar() {
       <div className="searchbar-dropdown-wrapper">
         <div ref={dropdown} className="searchbar-dropdown hidden">
           {possibles.map((item, index)=>
-            <div key={index}>
+            <div key={index} onMouseDown={remote_trigger}>
               <Link href="/quote/[id]" as={`/quote/${item.ticker}`}>
                 <a>{item.ticker}</a>
               </Link>
