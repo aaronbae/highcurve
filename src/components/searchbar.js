@@ -7,6 +7,7 @@ export default function SearchBar() {
   const [possibles, setPossibles] = useState([])
   const [socket, setSocket] = useState(null)
   const dropdown = useRef(null)
+  const searchbar = useRef(null)
 
   useEffect(()=>{
     const socket = io(process.env.NEXT_PUBLIC_WSS)
@@ -26,6 +27,7 @@ export default function SearchBar() {
 
   const remote_trigger =(event) =>{
     event.target.click()
+    searchbar.current.value = ""
   }
   const update_list = (event) => {
     if(socket){
@@ -38,7 +40,7 @@ export default function SearchBar() {
 
   return (
     <div className="search-container">
-      <input className="searchbar" onBlur={handle_blur} type="text" onKeyUp={update_list}/>
+      <input ref={searchbar} className="searchbar" onBlur={handle_blur} type="text" onKeyUp={update_list}/>
       <div className="searchbar-dropdown-wrapper">
         <div ref={dropdown} className="searchbar-dropdown hidden">
           {possibles.map((item, index)=>
