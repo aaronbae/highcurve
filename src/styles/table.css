@@ -1,11 +1,11 @@
-.ticker-table td, .ticker-table th{
+.styled-table td, .styled-table th{
   border-bottom: 1px solid black;
   padding: 5px 10px;
   font-size: 0.9rem;
 }
-.ticker-table tr:nth-child(even) {
+.styled-table tr:nth-child(even) {
   background-color: rgb(1,1,1,0.1);
 }
-.ticker-table th {
+.styled-table th {
   font-weight: bold;
 }

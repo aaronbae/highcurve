@@ -1,3 +1,8 @@
+@media (min-width: 769px) {
+  #main {
+    padding: 10px 15vw;
+  }  
+}
 #main {
   min-height: 85vh;
 }

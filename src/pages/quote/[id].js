@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Table from '../../components/table'
+import '../../styles/quote/id.css'
 
 export default function Quote() {
   const router = useRouter()
@@ -26,19 +27,21 @@ export default function Quote() {
   return (
     <div className="quote-container">
       {id &&
-        <Table header={["Symbol", "Date", "Change", "Open", "High", "Low", "Close"]}>
-          {data.map((item, index)=>
-            <tr key={index}>
-              <td>{item.ticker}</td>
-              <td>{item.date.substring(0, 10)}</td>
-              <td>{round(item.change, 4)}</td>
-              <td>{round(item.open)}</td>
-              <td>{round(item.high)}</td>
-              <td>{round(item.low)}</td>
-              <td>{round(item.close)}</td>
-            </tr>
-          )}
-        </Table>
+        <div>        
+          <p className="quote-title">{id}</p>
+          <Table header={["Date", "Change", "Open", "High", "Low", "Close"]}>
+            {data.map((item, index)=>
+              <tr key={index}>
+                <td>{item.date.substring(0, 10)}</td>
+                <td>{round(item.change, 4)}</td>
+                <td>{round(item.open)}</td>
+                <td>{round(item.high)}</td>
+                <td>{round(item.low)}</td>
+                <td>{round(item.close)}</td>
+              </tr>
+            )}
+          </Table>
+        </div>
       }
     </div>
   )
