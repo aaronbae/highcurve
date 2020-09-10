@@ -5,19 +5,32 @@ import Table from '../components/table'
 import '../styles/index.css'
 
 export default function Home() {
-  const [date, setDate] = useState(moment().startOf("day"))
-  const [data, setData] = useState([]);
+  const [date, setDate] = useState(moment().subtract(1, 'days').startOf("day"))
+  const [gainers, setGainers] = useState([]);
+  const [losers, setLosers] = useState([]);
   if(process.env.NODE_ENV === "production") {
     return <UnderConstruction />
   }
   
   useEffect(()=>{
     const rounded_milli = date.toDate().getTime()
-    fetch(`${process.env.NEXT_PUBLIC_STOCKS_URL}topmovers/${rounded_milli}/20`) 
+    fetch(`${process.env.NEXT_PUBLIC_STOCKS_URL}topgainers/${rounded_milli}/20`) 
     .then(response => response.json())
-    .then(data => {
-      if(data.stocks){
-        setData(data.stocks.map(x=>{
+    .then(gainers => {
+      if(gainers.stocks){
+        setGainers(gainers.stocks.map(x=>{
+          return {...x, 
+            close: "$" + Math.round(100*x.close)/100, 
+            change: Math.round(10000*x.change)/100 + "%"}
+        }))
+      }
+    })
+    
+    fetch(`${process.env.NEXT_PUBLIC_STOCKS_URL}toplosers/${rounded_milli}/20`) 
+    .then(response => response.json())
+    .then(losers => {
+      if(losers.stocks){
+        setLosers(losers.stocks.map(x=>{
           return {...x, 
             close: "$" + Math.round(100*x.close)/100, 
             change: Math.round(10000*x.change)/100 + "%"}
@@ -28,17 +41,32 @@ export default function Home() {
 
   return (
     <div id="home">
-      <p className="date-header">{date.format("MMMM Do")}</p>
-      <div className="topmovers-container">
-        <Table title="Top Movers" header={["Symbol", "Price", "Change"]}>
-          {data.length > 0 && data.map((item, index)=>
-            <tr key={index}>
-              <td>{item.ticker}</td>
-              <td>{item.close}</td>
-              <td>{item.change}</td>
-            </tr>
-          )}
-        </Table>
+      <div className="articles-container card">
+        <p className="date-header">{date.format("MMMM Do")}</p>
+      </div>
+      <div className="gainers-and-losers-container">
+        <div className="topgainers-container">
+          <Table title="Top Gainers" header={["Symbol", "Price", "Change"]}>
+            {gainers.length > 0 && gainers.map((item, index)=>
+              <tr key={index}>
+                <td>{item.ticker}</td>
+                <td>{item.close}</td>
+                <td>{item.change}</td>
+              </tr>
+            )}
+          </Table>
+        </div>
+        <div className="toplosers-container">
+          <Table title="Top Losers" header={["Symbol", "Price", "Change"]}>
+            {losers.length > 0 && losers.map((item, index)=>
+              <tr key={index}>
+                <td>{item.ticker}</td>
+                <td>{item.close}</td>
+                <td>{item.change}</td>
+              </tr>
+            )}
+          </Table>
+        </div>
       </div>
     </div>
   )
