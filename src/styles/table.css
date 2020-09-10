@@ -1,10 +1,21 @@
+.styled-table-container {
+  display: inline-block;
+  box-shadow: 0 0 10px 5px rgba(1,1,1,0.1);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-image: linear-gradient(rgba(64,198,255, 0.8), rgba(0,0,0, 0.0) 10%);
+}
+.styled-table caption {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+.styled-table th {
+  background-color: rgba(255,255,255, 0.6);
+}
 .styled-table td, .styled-table th{
-  border-bottom: 1px solid black;
   padding: 5px 10px;
   font-size: 0.9rem;
-}
-.styled-table tr:nth-child(even) {
-  background-color: rgb(1,1,1,0.1);
 }
 .styled-table th {
   font-weight: bold;
