@@ -4,6 +4,7 @@ import '../styles/contact.css';
 
 export default function Contact() {
   const [message_length, setMsgLength] = useState(0)
+  const [success, setSuccess] = useState(false);
   const name = useRef(null);
   const email = useRef(null);
   const message = useRef(null);
@@ -36,7 +37,9 @@ export default function Contact() {
       message.current.classList.remove("error")
     }
     if(should_send) {
-      console.log("Sending...")
+      name.current.value = ""
+      email.current.value = ""
+      message.current.value = ""
     }
     event.preventDefault();
   }
@@ -48,7 +51,12 @@ export default function Contact() {
         </div>
       </Banner>
       <div className="contact-main">
-        <p className="contact-title">Contact</p>
+        <p className="contact-title">
+          Contact
+          {success && 
+            <span className="contact-success">Successfully Sent!</span>
+          }
+        </p>
         <p className="contact-explanation">
           If you have any suggestions or experience any difficulties,
           feel free to reach out to me through this form. Any feedback
