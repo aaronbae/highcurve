@@ -1,13 +1,14 @@
+import Banner from '../components/banner';
 import '../styles/about.css';
 
 export default function About() {
   return (
     <div className="about-container">
-      <div className="about-banner-wrapper">
+      <Banner height="30vh">
         <div className="about-banner">
           <img src="logo-words.svg" alt="HighCurve Logo" className="about-banner-img"/>
         </div>
-      </div>
+      </Banner>
       <p className="about-title">About</p>
       <div className="about-section">
         <p className="about-section-title">Mission</p>

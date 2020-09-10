@@ -1,30 +1,13 @@
-@media (min-width: 769px) {
-  .about-banner {
-    left: -15vw;
-  }  
-}
-@media (max-width: 768px) {
-  .about-banner {
-    left: -10px;
-  }  
-}
 .about-container {
   margin-top: -10px;
   margin-bottom: 100px;
   max-width: 500px; 
 }
-.about-banner-wrapper {
-  position: relative;
-  height: 30vh;
-  margin-bottom: 15px;
-}
 .about-banner {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100%;
   background-color: rgba(0,0,0, 0.9);
 }
@@ -37,6 +20,7 @@
 }
 .about-title {
   font-size: 2rem;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 .about-section {
