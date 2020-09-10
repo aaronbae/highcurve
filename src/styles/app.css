@@ -54,3 +54,7 @@ html, body {
   image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
+.card {
+  box-shadow: 0 0 10px 5px rgba(1,1,1,0.1);
+  border-radius: 10px;
+}
