@@ -1,5 +1,12 @@
+import Banner from '../components/banner';
+import '../styles/disclaimer.css';
+
 export default function Disclaimer() {
   return (
-    <div>Disclaimer</div>
+    <div>
+      <Banner height="30vh">
+        DISCLAIMER
+      </Banner>
+    </div>
   )
 }

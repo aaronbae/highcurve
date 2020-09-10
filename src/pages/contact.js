@@ -46,9 +46,7 @@ export default function Contact() {
   return (
     <div className="contact-container">
       <Banner height="30vh">
-        <div className="contact-banner">
-          CONTACT
-        </div>
+        CONTACT
       </Banner>
       <div className="contact-main">
         <p className="contact-title">
