@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import moment from 'moment'
-import UnderConstruction from '../components/underconstruction'
 import Table from '../components/table'
 import '../styles/index.css'
 
@@ -8,9 +7,6 @@ export default function Home() {
   const [date, setDate] = useState(moment().subtract(1, 'days').startOf("day"))
   const [gainers, setGainers] = useState([]);
   const [losers, setLosers] = useState([]);
-  if(process.env.NODE_ENV === "production") {
-    return <UnderConstruction />
-  }
   
   useEffect(()=>{
     const rounded_milli = date.toDate().getTime()
