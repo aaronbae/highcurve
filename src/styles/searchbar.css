@@ -6,6 +6,9 @@
   height: 30px;
   z-index: 1; /*Must be higher than contents outside of the Header */
 }
+.search-inner-container:focus {
+  border: 1px solid rgba(64,198,255, 0.7);
+}
 .search-inner-container {
   border: 1px solid darkgray;
   border-radius: 10px;
@@ -30,7 +33,7 @@
   
 }
 .searchbar-dropdown > div:hover {
-  background-color: gray;
+  background-color: rgba(64,198,255, 0.7);
 }
 .hidden {
   display: none;

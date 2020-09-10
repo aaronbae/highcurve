@@ -34,6 +34,10 @@ export default function SearchBar() {
     searchbar.current.value = ""
   }
   const update_list = (event) => {
+    if(event.key == "Enter" && possibles.length > 0){
+      dropdown.current.children[0].children[0].click()
+      searchbar.current.value = ""
+    }
     if(socket){
       socket.emit("ticker_search", event.target.value)
     }
