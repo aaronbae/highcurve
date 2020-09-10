@@ -2,7 +2,7 @@ import '../styles/table.css'
 
 export default function Table(params) {
   return (
-    <div className="styled-table-container">
+    <div className="styled-table-container card">
       <table className="styled-table">
         {params.title && 
           <caption>{params.title}</caption>
