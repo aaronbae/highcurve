@@ -37,7 +37,6 @@ export default function Contact() {
       message.current.classList.remove("error")
     }
     if(should_send) {
-      console.log(n, e, m)
       fetch(process.env.NEXT_PUBLIC_EMAIL_URL, {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
@@ -50,14 +49,14 @@ export default function Contact() {
       })
       .then(response=>response.json())
       .then(res=>{
-        console.log(res)
+        name.current.value = ""
+        email.current.value = ""
+        message.current.value = ""
+        setSuccess(true)
       })
       .catch(error=>{
         console.log("something went wrong!\n"+error)
       })
-      name.current.value = ""
-      email.current.value = ""
-      message.current.value = ""
     }
     event.preventDefault();
   }
