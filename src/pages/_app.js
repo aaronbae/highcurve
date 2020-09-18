@@ -5,6 +5,7 @@ import UnderConstruction from '../components/underconstruction'
 import '../styles/app.css'
 
 function MyApp({ Component, pageProps }) {
+  // Just making a change for git push
   // if(process.env.NODE_ENV === "production") {
   //   return <UnderConstruction />
   // }
