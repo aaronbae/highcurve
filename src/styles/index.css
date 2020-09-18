@@ -15,3 +15,9 @@
 .date-header {
   font-size: 2rem;
 }
+.index-table-row {
+  cursor: pointer;
+}
+.index-table-row:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}

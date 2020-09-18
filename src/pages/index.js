@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import moment from 'moment'
 import Table from '../components/table'
 import '../styles/index.css'
 
 export default function Home() {
+  const router = useRouter();
   const [date, setDate] = useState(moment().subtract(1, 'days').startOf("day"))
   const [gainers, setGainers] = useState([]);
   const [losers, setLosers] = useState([]);
@@ -35,6 +37,11 @@ export default function Home() {
     })
   }, [])
 
+  const handle_click = (event) => {
+    const ticker = event.target.parentNode.getAttribute("data")
+    router.push("/quote/[id]", `/quote/${ticker}`)
+  }
+
   return (
     <div id="home">
       <div className="articles-container card">
@@ -44,7 +51,7 @@ export default function Home() {
         <div className="topgainers-container">
           <Table title="Top Gainers" header={["Symbol", "Price", "Change"]}>
             {gainers.length > 0 && gainers.map((item, index)=>
-              <tr key={index}>
+              <tr key={index} className="index-table-row" onClick={handle_click} data={item.ticker}>
                 <td>{item.ticker}</td>
                 <td>{item.close}</td>
                 <td>{item.change}</td>
@@ -55,7 +62,7 @@ export default function Home() {
         <div className="toplosers-container">
           <Table title="Top Losers" header={["Symbol", "Price", "Change"]}>
             {losers.length > 0 && losers.map((item, index)=>
-              <tr key={index}>
+              <tr key={index} className="index-table-row" onClick={handle_click} data={item.ticker}>
                 <td>{item.ticker}</td>
                 <td>{item.close}</td>
                 <td>{item.change}</td>
