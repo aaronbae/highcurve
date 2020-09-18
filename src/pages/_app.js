@@ -5,9 +5,9 @@ import UnderConstruction from '../components/underconstruction'
 import '../styles/app.css'
 
 function MyApp({ Component, pageProps }) {
-  if(process.env.NODE_ENV === "production") {
-    return <UnderConstruction />
-  }
+  // if(process.env.NODE_ENV === "production") {
+  //   return <UnderConstruction />
+  // }
   return (
     <Layout>
       <Component {...pageProps} />
