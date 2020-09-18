@@ -26,11 +26,11 @@ function Layout({children}){
         <meta key="referrer" name="referrer" content="origin" />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      {process.env.NODE_ENV==="development" && <Header />}
+      <Header />
       <main id="main">
         {children}
       </main>
-      {process.env.NODE_ENV==="development" && <Footer />}
+      <Footer />
     </div>
   )
 }
