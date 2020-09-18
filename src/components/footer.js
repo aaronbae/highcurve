@@ -4,7 +4,7 @@ import '../styles/footer.css'
 export default function Footer() {
   return (
     <footer className="footer-container">
-      <Link href="/"><a className="footer-logo-wrapper"><img src="logo-words.svg" className="footer-logo" /></a></Link>
+      <Link href="/"><a className="footer-logo-wrapper"><img src="/logo-words.svg" className="footer-logo" /></a></Link>
       <div className="general-resource">
         <p className="footer-section-title">General Resource</p>
         <Link href="/about"><a>About</a></Link>
